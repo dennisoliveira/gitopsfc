@@ -8,4 +8,4 @@ resources:
 images:
 - name: goserver
   newName: dennisoliveira/gitopsfc
-  newTag: "13"
+  newTag: "14"
