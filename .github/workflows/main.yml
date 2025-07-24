@@ -41,15 +41,15 @@ jobs:
           cd k8s
           kustomize edit set image goserver=${{ secrets.DOCKERHUB_USERNAME }}/gitopsfc:${{ github.run_number }}
 
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git diff --quiet || git commit -am "Bump docker version"
+      # - name: Commit changes
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     git diff --quiet || git commit -am "Bump docker version"
 
-      - name: Push changes
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-        run: |
-          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
-          git push origin HEAD:${{ github.ref_name }}
+      # - name: Push changes
+      #   env:
+      #     GH_PAT: ${{ secrets.GH_PAT }}
+      #   run: |
+      #     git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
+      #     git push origin HEAD:${{ github.ref_name }}
