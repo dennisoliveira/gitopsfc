@@ -7,5 +7,5 @@ resources:
 
 images:
 - name: goserver
-  newName: dennisoliveira/gitops
-  newTag: "1"
+  newName: dennisoliveira/gitopsfc
+  newTag: "2"
