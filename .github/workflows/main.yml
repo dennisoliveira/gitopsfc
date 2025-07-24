@@ -45,5 +45,8 @@ jobs:
           git diff --quiet || git commit -am "Bump docker version"
 
       - name: Push changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git push origin HEAD:${{ github.ref }}
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
+          git push origin HEAD:${{ github.ref_name }}
